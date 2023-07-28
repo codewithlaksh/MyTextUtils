@@ -7,7 +7,6 @@ def home(request):
     # return HttpResponse("Hello World!")
     return render(request, "index.html")
 
-@csrf_exempt
 def analyze(request):
     if request.method == "POST":
         text = request.POST.get("text")
