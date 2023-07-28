@@ -1,0 +1,64 @@
+{% extends 'basic.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <div class="container my-3">
+        <h1><span id="typed"></span></h1>
+        <form action="{% url 'analyze' %}" method="post">
+            <div class="my-3">
+                <label for="text">Enter your text below</label>
+                <textarea class="form-control" name="text" id="text" cols="30" rows="10"></textarea>
+            </div>
+            <div class="my-3">
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="cuppercase" name="cuppercase">
+                  <label class="form-check-label" for="cuppercase">Convert to upper case</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="ctitlecase" name="ctitlecase">
+                  <label class="form-check-label" for="ctitlecase">Convert to title case</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="ccamelcase" name="ccamelcase">
+                  <label class="form-check-label" for="ccamelcase">Convert to camel case</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="clowercase" name="clowercase">
+                  <label class="form-check-label" for="clowercase">Convert to lower case</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="removeExtraSpaces" name="removeExtraSpaces">
+                  <label class="form-check-label" for="removeExtraSpaces">Remove extra spaces</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="removeSpecialChars" name="removeSpecialChars">
+                  <label class="form-check-label" for="removeSpecialChars">Remove special characters</label>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="removeNewLines" name="removeNewLines">
+                  <label class="form-check-label" for="removeNewLines">Remove new lines</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-dark">Analyze</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js" type="text/javascript"></script>
+    <script>
+    window.onload = function () {
+        console.log("loaded")
+        var typed = new Typed('#typed', {
+            strings: ["You can do anything with your text here!","Enter your text here and let Text Utils do the magic!"],
+            backSpeed: 15,
+            smartBackspace: true,
+            backDelay: 1200,
+            startDelay: 1000,
+            typeSpeed: 25,
+            loop: true,
+        });
+    };
+    </script>
+{% endblock %}

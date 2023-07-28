@@ -1,0 +1,11 @@
+{% extends 'basic.html' %}
+
+{% block title %}Your analyzed text - {{ purpose }}{% endblock %}
+
+{% block body %}
+    <div class="container my-3">
+        <h1>Your analyzed text - {{ purpose }}</h1>
+        <hr>
+        {{ analyzed }}
+    </div>
+{% endblock %}
